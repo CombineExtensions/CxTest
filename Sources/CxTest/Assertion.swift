@@ -5,38 +5,38 @@
 //  Created by Steven Sherry on 10/13/19.
 //
 
-import Foundation
 import Combine
 import XCTest
 
-
 public extension Subscribers {
   final class Assertion<Input, Failure: Error>: Subscriber {
-    let assertion: Assert
-    
+    private let assertion: Assert
+    private let onComplete: () -> ()
     private let file: StaticString
     private let line: UInt
+    
     private var subscription: Subscription?
     
-    init(assert: Assert, file: StaticString = #file, line: UInt = #line) {
+    init(assert: Assert, onComplete: @escaping () -> (), file: StaticString = #file, line: UInt = #line) {
       assertion = assert
+      self.onComplete = onComplete
       self.file = file
       self.line = line
     }
     
     public func receive(subscription: Subscription) {
-      print("received subscription")
       self.subscription = subscription
       subscription.request(.unlimited)
     }
     
     public func receive(_ input: Input) -> Subscribers.Demand {
-      Swift.print("RECEIVED INPUT")
       assertion.input?(input)
       return .unlimited
     }
     
     public func receive(completion: Subscribers.Completion<Failure>) {
+      defer { onComplete() }
+      
       switch completion {
       case let .failure(error):
         if case .input = assertion {
@@ -66,7 +66,7 @@ public extension Subscribers {
     }
   }
 }
-
+  
 extension Subscribers.Assertion: Cancellable {
   public func cancel() {
     subscription?.cancel()
