@@ -20,6 +20,10 @@ extension Publisher {
 }
 
 public extension Publisher {
+  /// Assert that a publisher fails with a specified Error type
+  /// - Parameter type: The expected error type
+  /// - Parameter message: The optional message on failure
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assertError<E: Error>(
     type: E.Type,
     message: String? = nil,
@@ -40,6 +44,10 @@ public extension Publisher {
     )
   }
   
+  /// Assert than a publisher fails with the expected error
+  /// - Parameter error: The expected error
+  /// - Parameter message: The optional message on failure
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assertError<E: Error & Equatable>(
     equals error: E,
     message: String? = nil,
@@ -68,6 +76,8 @@ public extension Publisher {
     )
   }
   
+  /// Assert that a publisher fails
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assertFailure(
     expectation: XCTestExpectation? = nil,
     file: StaticString = #file,
@@ -82,16 +92,19 @@ public extension Publisher {
     )
   }
   
+  /// Assert that published value(s) are equal to an expected value
+  /// - Parameter value: The expected value
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assert<T: Equatable>(
-    equals other: T,
+    equals value: T,
     expectation: XCTestExpectation? = nil,
     file: StaticString = #file,
     line: UInt = #line
   ) -> AnyCancellable where Output == T {
     
     assert(
-      .input { value in
-        XCTAssertEqual(value, other, file: file, line: line)
+      .input { input in
+        XCTAssertEqual(input, value, file: file, line: line)
       },
       onComplete: fulfill(expectation),
       file: file,
@@ -99,6 +112,9 @@ public extension Publisher {
     )
   }
   
+  /// Assert that published values are greater than the specified value
+  /// - Parameter value: The value that published output should be greater than
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assert<T: Comparable>(
     greaterThan value: T,
     expectation: XCTestExpectation? = nil,
@@ -116,6 +132,9 @@ public extension Publisher {
     )
   }
   
+  /// Assert that published values are greater than  or equal to the specified value
+  /// - Parameter value: The value that published output should be greater than or equal to
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assert<T: Comparable>(
     greaterThanOrEqualTo value: T,
     expectation: XCTestExpectation? = nil,
@@ -133,6 +152,9 @@ public extension Publisher {
     )
   }
   
+  /// Assert that published values are less than  the specified value
+  /// - Parameter value: The value that published output should be less than
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assert<T: Comparable>(
     lessThan value: T,
     expectation: XCTestExpectation? = nil,
@@ -150,6 +172,9 @@ public extension Publisher {
     )
   }
   
+  /// Assert that published values are less than or equal to  the specified value
+  /// - Parameter value: The value that published output should be less than or equal to
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assert<T: Comparable>(
     lessThanOrEqualTo value: T,
     expectation: XCTestExpectation? = nil,
@@ -167,6 +192,8 @@ public extension Publisher {
     )
   }
   
+  /// Assert published values are nil
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assertNil<T>(
     expectation: XCTestExpectation? = nil,
     file: StaticString = #file,
@@ -183,6 +210,8 @@ public extension Publisher {
     )
   }
   
+  /// Assert published values are not nil
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
   func assertNotNil<T>(
     expectation: XCTestExpectation? = nil,
     file: StaticString = #file,
@@ -199,6 +228,9 @@ public extension Publisher {
     )
   }
   
+  /// Assert that an published values meet a given predicate
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
+  /// - Parameter predicate: The predicate evaluated for each published value
   func assert(
     expectation: XCTestExpectation? = nil,
     file: StaticString = #file,
@@ -216,23 +248,9 @@ public extension Publisher {
     )
   }
   
-  func assert(
-    expectation: XCTestExpectation,
-    file: StaticString = #file,
-    line: UInt = #line,
-    _ predicate: @escaping (Output) -> Bool
-  ) -> AnyCancellable {
-    
-    assert(
-      .input { input in
-        XCTAssert(predicate(input), file: file, line: line)
-      },
-      onComplete: fulfill(expectation),
-      file: file,
-      line: line
-    )
-  }
-  
+  /// Assert that an expression is true
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
+  /// - Parameter predicate: The predicate evaluated for each published value
   func assertTrue(
     expectation: XCTestExpectation? = nil,
     file: StaticString = #file,
@@ -250,6 +268,9 @@ public extension Publisher {
     )
   }
   
+  /// Assert that an expression is false
+  /// - Parameter expectation: An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.
+  /// - Parameter predicate: The predicate evaluated for each published value
   func assertFalse(
     expectation: XCTestExpectation? = nil,
     file: StaticString = #file,

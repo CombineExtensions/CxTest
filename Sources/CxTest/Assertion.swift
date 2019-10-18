@@ -8,7 +8,7 @@
 import Combine
 import XCTest
 
-public extension Subscribers {
+extension Subscribers {
   final class Assertion<Input, Failure: Error>: Subscriber {
     private let assertion: Assert
     private let onComplete: () -> ()
@@ -17,7 +17,7 @@ public extension Subscribers {
     
     private var subscription: Subscription?
     
-    init(assert: Assert, onComplete: @escaping () -> (), file: StaticString = #file, line: UInt = #line) {
+    init(assert: Assert, onComplete: @escaping () -> (), file: StaticString, line: UInt) {
       assertion = assert
       self.onComplete = onComplete
       self.file = file
@@ -68,7 +68,7 @@ public extension Subscribers {
 }
   
 extension Subscribers.Assertion: Cancellable {
-  public func cancel() {
+  func cancel() {
     subscription?.cancel()
   }
 }
