@@ -1,0 +1,21 @@
+name: CI
+
+on: [push, pull_request, release]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Switch to Xcode 11.0
+      run: sudo xcode-select --switch /Applications/Xcode_11.app/Contents/Developer
+    - name: Generate Xcode Project - Needed because Combine is not available on Mojave
+      run: swift package generate-xcodeproj
+    - name: Run iOS Framework Tests
+      run: >-
+        xcodebuild -project CxTest.xcodeproj
+        -scheme CxTest-Package
+        -sdk iphonesimulator
+        -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.0'
+        test | xcpretty
+
