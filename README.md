@@ -1,7 +1,7 @@
 # CxTest
 ## A collection of test helpers for Combine
 
-![Build Status](https://github.com/CombineExtensions/CxTest/workflows/CI/badge.svg) ![swift-package-manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-red.svg) ![platforms](https://img.shields.io/badge/Platform-iOS%20|%20macOS%20|%20watchOS-informational.svg) ![swift-version](https://img.shields.io/badge/Swift-5.1-orange.svg) ![license](https://img.shields.io/badge/License-MIT-c41d3a.svg)
+![Build Status](https://github.com/CombineExtensions/CxTest/workflows/CI/badge.svg) ![Current Version](https://img.shields.io/github/v/tag/CombineExtensions/CxTest?color=purple&label=Version) ![swift-package-manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-red.svg) ![platforms](https://img.shields.io/badge/Platform-iOS%20|%20macOS%20|%20watchOS-informational.svg) ![swift-version](https://img.shields.io/badge/Swift-5.1-orange.svg) ![license](https://img.shields.io/badge/License-MIT-c41d3a.svg)
 
 Testing Combine can be cumbersome. If you need to test any logic to Publishers you create or expose, one of the only options is to throw logic into a `Sink`:
 
