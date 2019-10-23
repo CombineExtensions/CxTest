@@ -4,7 +4,7 @@ on:
   release:
     types: [published]
 
-job:
+jobs:
   publish_docs:
     runs-on: macOS-latest
     steps:
