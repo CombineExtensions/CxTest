@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CxTest  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+
+
+    <a title="CxTest  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          CxTest Docs
+        </a>
+         (100% documented)
+      </p>
+    
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/CombineExtensions/CxTest">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">CxTest Reference</a>
+      <img class="carat" src="img/carat.png" />
+      CxTest  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Publisher.html">Publisher</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='cxtest' class='heading'>CxTest</h1>
+<h2 id='a-collection-of-test-helpers-for-combine' class='heading'>A collection of test helpers for Combine</h2>
+
+<p><img src="https://github.com/CombineExtensions/CxTest/workflows/CI/badge.svg" alt="Build Status"> <img src="https://img.shields.io/github/v/tag/CombineExtensions/CxTest?color=purple&label=Version" alt="Current Version"> <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-red.svg" alt="swift-package-manager"> <img src="https://img.shields.io/badge/Platform-iOS%20%7C%20macOS%20%7C%20watchOS-informational.svg" alt="platforms"> <img src="https://img.shields.io/badge/Swift-5.1-orange.svg" alt="swift-version"> <img src="https://img.shields.io/badge/License-MIT-c41d3a.svg" alt="license"></p>
+
+<p>Testing Combine can be cumbersome. If you need to test any logic to Publishers you create or expose, one of the only options is to throw logic into a <code>Sink</code>:</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">testPublisherFailsWithSpecifiedError</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">failing</span> <span class="o">=</span> <span class="kt">Fail</span><span class="p">(</span><span class="nv">outputType</span><span class="p">:</span> <span class="kt">Void</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt">SomeError</span><span class="p">())</span>
+    <span class="o">.</span><span class="nf">sink</span><span class="p">(</span><span class="nv">receiveCompletion</span><span class="p">:</span> <span class="p">{</span> <span class="n">completion</span> <span class="k">in</span> 
+      <span class="k">switch</span> <span class="n">completion</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">finished</span><span class="p">:</span>
+          <span class="kt">XCTFail</span><span class="p">(</span><span class="s">"Did not fail with an error"</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">failure</span><span class="p">:</span>
+          <span class="k">return</span>
+      <span class="p">}</span>
+    <span class="p">},</span> <span class="nv">receiveValue</span><span class="p">:</span> <span class="p">{</span> <span class="n">output</span> <span class="k">in</span>
+      <span class="kt">XCTFail</span><span class="p">(</span><span class="s">"Should not have received value: </span><span class="se">\(</span><span class="n">output</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>With <strong>CxTest</strong>, the previous example is simplified to this:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">failing</span> <span class="o">=</span> <span class="kt">Fail</span><span class="p">(</span><span class="nv">outputType</span><span class="p">:</span> <span class="kt">Void</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt">SomeError</span><span class="p">())</span>
+    <span class="o">.</span><span class="nf">assertFailure</span><span class="p">()</span>
+</code></pre>
+
+<p>When you&rsquo;re creating your own Combine publishers or operators, testing can normally be done using something like a <code>PassthroughSubject</code> to avoid having to actually call an asynchrounous API:</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">testValuesAreLessThan10</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">passthrough</span> <span class="o">=</span> <span class="kt">PassthroughSubject</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Never</span><span class="o">&gt;</span><span class="p">()</span>
+
+  <span class="k">let</span> <span class="nv">clamped</span> <span class="o">=</span> <span class="n">passthrough</span>
+      <span class="o">.</span><span class="nf">clamp</span><span class="p">(</span><span class="nv">range</span><span class="p">:</span> <span class="kt">Int</span><span class="o">.</span><span class="n">min</span><span class="o">..&lt;</span><span class="mi">10</span><span class="p">)</span>
+      <span class="o">.</span><span class="nf">assert</span><span class="p">(</span><span class="nv">lessThan</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+
+  <span class="n">passthrough</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+  <span class="n">passthrough</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+  <span class="n">passthrough</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="o">.</span><span class="n">finished</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>CxTest</strong> also has full support for asynchronous APIs:</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">testValuesAreLessThan10Async</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">clampedExpectation</span> <span class="o">=</span> <span class="kt">XCTestExpectation</span><span class="p">(</span><span class="nv">description</span><span class="p">:</span> <span class="s">"clamped"</span><span class="p">)</span>
+
+  <span class="k">let</span> <span class="nv">clamped</span> <span class="o">=</span> <span class="kt">AsyncNumberPublisher</span><span class="p">()</span>
+      <span class="o">.</span><span class="nf">clamp</span><span class="p">(</span><span class="nv">range</span><span class="p">:</span> <span class="kt">Int</span><span class="o">.</span><span class="n">min</span><span class="o">..&lt;</span><span class="mi">10</span><span class="p">)</span>
+      <span class="o">.</span><span class="nf">assert</span><span class="p">(</span><span class="nv">lessThan</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">expectation</span><span class="p">:</span> <span class="n">clampedExpectation</span><span class="p">)</span>
+
+  <span class="nf">wait</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="p">[</span><span class="n">clampedExpectation</span><span class="p">],</span> <span class="nv">timeout</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>CxTest</strong> has a comparable operator for every XCTest assertion with the exception of <code>XCTAssertThrowsError</code> and <code>XCTAssertNoThrow</code>. These error throwing assertions are replaced by <code>assertFailure()</code>, <code>assertError(type:expectation:)</code>, and <code>assertError(equals:expectation:)</code> operators.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external">Steven Sherry</a>. All rights reserved. (Last updated: 2019-10-23)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

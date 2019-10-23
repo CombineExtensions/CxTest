@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Publisher Extension Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Extension/Publisher" class="dashAnchor"></a>
+
+    <a title="Publisher Extension Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          CxTest Docs
+        </a>
+         (100% documented)
+      </p>
+    
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/CombineExtensions/CxTest">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">CxTest Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      Publisher Extension Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/Publisher.html">Publisher</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>Publisher</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">@available(OSX 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)</span>
+<span class="kd">public</span> <span class="kd">extension</span> <span class="kt">Publisher</span></code></pre>
+
+                </div>
+              </div>
+            
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE11assertError4type7message11expectation4file4lineAA14AnyCancellableCqd__m_SSSgSo17XCTestExpectationCSgs12StaticStringVSuts0F0Rd__lF"></a>
+                    <a name="//apple_ref/swift/Method/assertError(type:message:expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE11assertError4type7message11expectation4file4lineAA14AnyCancellableCqd__m_SSSgSo17XCTestExpectationCSgs12StaticStringVSuts0F0Rd__lF">assertError(type:message:expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that a publisher fails with a specified Error type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">assertError</span><span class="o">&lt;</span><span class="kt">E</span><span class="p">:</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="nv">type</span><span class="p">:</span> <span class="kt">E</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+  <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The expected error type</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The optional message on failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE11assertError6equals7message11expectation4file4lineAA14AnyCancellableCqd___SSSgSo17XCTestExpectationCSgs12StaticStringVSutSQRd__s0F0Rd__lF"></a>
+                    <a name="//apple_ref/swift/Method/assertError(equals:message:expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE11assertError6equals7message11expectation4file4lineAA14AnyCancellableCqd___SSSgSo17XCTestExpectationCSgs12StaticStringVSutSQRd__s0F0Rd__lF">assertError(equals:message:expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert than a publisher fails with the expected error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">assertError</span><span class="o">&lt;</span><span class="kt">E</span><span class="p">:</span> <span class="kt">Error</span> <span class="o">&amp;</span> <span class="kt">Equatable</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">equals</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">E</span><span class="p">,</span>
+  <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The expected error</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The optional message on failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE13assertFailure11expectation4file4lineAA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSutF"></a>
+                    <a name="//apple_ref/swift/Method/assertFailure(expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE13assertFailure11expectation4file4lineAA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSutF">assertFailure(expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that a publisher fails</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">assertFailure</span><span class="p">(</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE6assert6equals11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSQRd__6OutputQzRsd__lF"></a>
+                    <a name="//apple_ref/swift/Method/assert(equals:expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE6assert6equals11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSQRd__6OutputQzRsd__lF">assert(equals:expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that published value(s) are equal to an expected value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">assert</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Equatable</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">equals</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span> <span class="k">where</span> <span class="kt">Output</span> <span class="o">==</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The expected value</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE6assert11greaterThan11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSLRd__6OutputQzRsd__lF"></a>
+                    <a name="//apple_ref/swift/Method/assert(greaterThan:expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE6assert11greaterThan11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSLRd__6OutputQzRsd__lF">assert(greaterThan:expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that published values are greater than the specified value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">assert</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Comparable</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">greaterThan</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span> <span class="k">where</span> <span class="kt">Output</span> <span class="o">==</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that published output should be greater than</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE6assert20greaterThanOrEqualTo11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSLRd__6OutputQzRsd__lF"></a>
+                    <a name="//apple_ref/swift/Method/assert(greaterThanOrEqualTo:expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE6assert20greaterThanOrEqualTo11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSLRd__6OutputQzRsd__lF">assert(greaterThanOrEqualTo:expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that published values are greater than  or equal to the specified value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">assert</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Comparable</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">greaterThanOrEqualTo</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span> <span class="k">where</span> <span class="kt">Output</span> <span class="o">==</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that published output should be greater than or equal to</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE6assert8lessThan11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSLRd__6OutputQzRsd__lF"></a>
+                    <a name="//apple_ref/swift/Method/assert(lessThan:expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE6assert8lessThan11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSLRd__6OutputQzRsd__lF">assert(lessThan:expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that published values are less than  the specified value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">assert</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Comparable</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">lessThan</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span> <span class="k">where</span> <span class="kt">Output</span> <span class="o">==</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that published output should be less than</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE6assert17lessThanOrEqualTo11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSLRd__6OutputQzRsd__lF"></a>
+                    <a name="//apple_ref/swift/Method/assert(lessThanOrEqualTo:expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE6assert17lessThanOrEqualTo11expectation4file4lineAA14AnyCancellableCqd___So17XCTestExpectationCSgs12StaticStringVSutSLRd__6OutputQzRsd__lF">assert(lessThanOrEqualTo:expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that published values are less than or equal to  the specified value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">assert</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Comparable</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">lessThanOrEqualTo</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span> <span class="k">where</span> <span class="kt">Output</span> <span class="o">==</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that published output should be less than or equal to</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE9assertNil11expectation4file4lineAA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSutqd__Sg6OutputRtzlF"></a>
+                    <a name="//apple_ref/swift/Method/assertNil(expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE9assertNil11expectation4file4lineAA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSutqd__Sg6OutputRtzlF">assertNil(expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert published values are nil</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">assertNil</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span> <span class="k">where</span> <span class="kt">Output</span> <span class="o">==</span> <span class="kt">Optional</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE12assertNotNil11expectation4file4lineAA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSutqd__Sg6OutputRtzlF"></a>
+                    <a name="//apple_ref/swift/Method/assertNotNil(expectation:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE12assertNotNil11expectation4file4lineAA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSutqd__Sg6OutputRtzlF">assertNotNil(expectation:file:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert published values are not nil</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">assertNotNil</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span> <span class="k">where</span> <span class="kt">Output</span> <span class="o">==</span> <span class="kt">Optional</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE6assert11expectation4file4line_AA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSuSb6OutputQzctF"></a>
+                    <a name="//apple_ref/swift/Method/assert(expectation:file:line:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE6assert11expectation4file4line_AA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSuSb6OutputQzctF">assert(expectation:file:line:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that an published values meet a given predicate</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">assert</span><span class="p">(</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">,</span>
+  <span class="n">_</span> <span class="nv">predicate</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Output</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>predicate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The predicate evaluated for each published value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE10assertTrue11expectation4file4line_AA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSuSb6OutputQzctF"></a>
+                    <a name="//apple_ref/swift/Method/assertTrue(expectation:file:line:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE10assertTrue11expectation4file4line_AA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSuSb6OutputQzctF">assertTrue(expectation:file:line:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that an expression is true</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">assertTrue</span><span class="p">(</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">,</span>
+  <span class="n">_</span> <span class="nv">predicate</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Output</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>predicate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The predicate evaluated for each published value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Combine9PublisherP6CxTestE11assertFalse11expectation4file4line_AA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSuSb6OutputQzctF"></a>
+                    <a name="//apple_ref/swift/Method/assertFalse(expectation:file:line:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Combine9PublisherP6CxTestE11assertFalse11expectation4file4line_AA14AnyCancellableCSo17XCTestExpectationCSg_s12StaticStringVSuSb6OutputQzctF">assertFalse(expectation:file:line:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assert that an expression is false</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">assertFalse</span><span class="p">(</span>
+  <span class="nv">expectation</span><span class="p">:</span> <span class="kt">XCTestExpectation</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span>
+  <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">,</span>
+  <span class="n">_</span> <span class="nv">predicate</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Output</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyCancellable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expectation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional expectation; if testing asynchrounous calls, this will need to be passed otherwise you will receive false positives.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>predicate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The predicate evaluated for each published value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external">Steven Sherry</a>. All rights reserved. (Last updated: 2019-10-23)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
