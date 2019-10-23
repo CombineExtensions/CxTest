@@ -1,0 +1,20 @@
+name: Publish Documentation
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish_docs:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Switch to Xcode 11
+        run: sudo xcode-select --switch /Applications/Xcode_11.app/Contents/Developer
+      - name: Generate Xcode Project - Needed because Combine is not available on Mojave
+        run: swift package generate-xcodeproj
+      - name: Publish Jazzy Docs
+        uses: steven0351/publish-jazzy-docs@v1
+        with:
+          personal_access_token: ${{ secrets.ACCESS_TOKEN }}
+          config: .jazzy.yml

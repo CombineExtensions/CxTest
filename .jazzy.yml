@@ -1,0 +1,9 @@
+clean: true
+sdk: iphone
+author: Steven Sherry
+module: CxTest
+readme: README.md
+github_url: https://github.com/CombineExtensions/CxTest
+disable_search: true
+theme: fullwidth
+build_tool_arguments: [-target, CxTest]
